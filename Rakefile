@@ -3,13 +3,26 @@ load 'jasmine/tasks/jasmine.rake'
 
 desc "Install dependencies and build"
 task :install do
-  sh "npm install grunt --save-dev"
-  sh "npm install grunt-contrib-uglify --save-dev"
-  sh "npm install grunt-contrib-watch --save-dev"
-  sh "npm install grunt-contrib-concat --save-dev"
-  sh "npm install grunt-contrib-compass --save-dev"
+  
+  # Install grunt and grunt task contribs
+  
+  [ 
+    'grunt',
+    'grunt-contrib-uglify',
+    'grunt-contrib-watch',
+    'grunt-contrib-concat',
+    'grunt-contrib-compass'
+  ].each do | pkg |
+      sh "npm install #{pkg} --save-dev"
+  end
+  
+  # Install Ruby and Bower dependencies
+  
   sh "bower install"
   sh "bundle install"
+  
+  # Run grunt commands to build JS and CSS
+  
   sh "grunt concat"
   sh "grunt uglify"
   sh "grunt compass"

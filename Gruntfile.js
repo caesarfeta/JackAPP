@@ -19,7 +19,6 @@ module.exports = function( grunt ) {
 					'jackson/**/*.js',
 					'sparql/**/*.js',
 					'ui/**/*.js',
-					
 					'app.js'
 				],
 				dest: 'dist/<%= pkg.name %>.js'
@@ -48,7 +47,7 @@ module.exports = function( grunt ) {
 		compass: {
 		  dist: {
 		    options: {
-		      config: 'config.rb'
+		      config: 'compass.rb'
 		    }
 		  }
 		}

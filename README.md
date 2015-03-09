@@ -22,6 +22,3 @@ It was designed to make building link-data web applications simple.
 	* JSON-LD ontologies
 * json/config.json 
 	maps JSON template to ontology and UI element.
-
-
-
