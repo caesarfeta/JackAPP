@@ -1,0 +1,21 @@
+{
+	"data": {
+		"default": {
+			"label": [
+				
+				{
+					"context": "context/prod.json", 
+					"key": "label"
+				},
+				
+				{
+					"context": "context/edge.json", 
+					"key": "label"
+				}
+				
+			]
+		},
+		
+		"jsonld/record.json": {}
+	}
+}

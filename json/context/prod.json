@@ -1,0 +1,75 @@
+{
+	"@ns": {
+		"citex": "http://data.perseus.org/rdfvocab/cite/",
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"dct": "http://purl.org/dc/terms/",
+		"cite": "http://www.homermultitext.org/cite/rdf/",
+		"crm": "http://www.cidoc-crm.org/cidoc-crm/"
+	},
+	"@key": {
+  	"imgViewer": {
+  	  "term": "imageViewer",
+  	  "ns": "citex"
+  	},
+  	"imgServer": {
+  	  "term": "imageServer",
+  	  "ns": "citex"
+  	},
+  	"label":  {
+  	   "term": "label",
+  	   "ns": "rdf"
+  	},
+  	"description": {
+  	   "term": "description",
+  	   "ns": "rdf"
+  	}, 
+  	"type": {
+  	   "term": "type",
+  	   "ns": "dct"
+  	},
+  	"src": {
+  	   "term": "references",
+  	   "ns": "dct"
+  	},
+  	"owner": {
+  	   "term": "publisher",
+  	   "ns": "dct"
+  	},
+  	"creator": {
+  	   "term": "creator",
+  	   "ns": "dct"
+  	},
+		"identifier": {
+			"term": "dct:identifier",
+			"ns": "dct"
+		},
+  	"contributor": {
+  	   "term": "contributor",
+  	   "ns": "dct"
+  	},
+  	"created": {
+  	   "term": "created",
+  	   "ns": "dct"
+  	},
+  	"modified": {
+  	   "term": "modified",
+  	   "ns": "dct"
+  	},
+  	"subject": {
+  	   "term": "subject",
+  	   "ns": "dct"
+  	},
+  	"memberOf": {
+  	   "term": "belongsTo",
+  	   "ns": "cite"
+  	},
+  	"represents": {
+  	   "term": "P138_represents",
+  	   "ns": "crm"
+  	},
+  	"rights": {
+  	   "term": "license",
+  	   "ns": "cite",
+  	   "default": "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+  	}
+}

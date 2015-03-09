@@ -1,0 +1,1 @@
+var appControl = angular.module('appControl',[]);
