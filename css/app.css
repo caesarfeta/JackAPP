@@ -9235,3 +9235,23 @@ ul.list table {
   padding: 1rem;
   background-color: #F6F6F6;
 }
+
+/* d3 */
+/* line 99, ../scss/app.scss */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+/* line 105, ../scss/app.scss */
+.axis path {
+  fill: none;
+  stroke: none;
+}
+
+/* line 109, ../scss/app.scss */
+.bar {
+  fill: steelblue;
+}

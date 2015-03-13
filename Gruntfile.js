@@ -14,12 +14,12 @@ module.exports = function( grunt ) {
 			},
 			dist: {
 				src: [
+					'config/**/*.js',
 					'control/**/*.js',
 					'dev/**/*.js',
-					'jackson/**/*.js',
+					'serv/**/*.js',
 					'sparql/**/*.js',
-					'ui/**/*.js',
-					'app.js'
+					'ui/**/*.js'
 				],
 				dest: 'dist/<%= pkg.name %>.js'
 			}
