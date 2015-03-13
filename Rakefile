@@ -4,21 +4,9 @@ load 'jasmine/tasks/jasmine.rake'
 desc "Install dependencies and build"
 task :install do
   
-  # Install grunt and grunt task contribs
+  # Install Ruby and JS dependencies
   
-  [ 
-    'grunt',
-    'grunt-contrib-uglify',
-    'grunt-contrib-watch',
-    'grunt-contrib-concat',
-    'grunt-contrib-compass',
-    'request-json'
-  ].each do | pkg |
-      sh "npm install #{pkg} --save"
-  end
-  
-  # Install Ruby and Bower dependencies
-  
+  sh "npm install"
   sh "bower install"
   sh "bundle install"
   
