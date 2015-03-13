@@ -1,26 +1,29 @@
 d3.custom = {};
  
 d3.custom.barChart = function module() {
-    var margin = {top: 20, right: 20, bottom: 40, left: 40},
+    var margin = { top: 20, right: 20, bottom: 40, left: 40 },
         width = 500,
         height = 500,
         gap = 0,
         ease = 'cubic-in-out';
+
     var svg, duration = 500;
  
     var dispatch = d3.dispatch('customHover');
+		
     function exports(_selection) {
-        _selection.each(function(_data) {
+        _selection.each( 
+					function(_data) {
  
             var chartW = width - margin.left - margin.right,
                 chartH = height - margin.top - margin.bottom;
  
             var x1 = d3.scale.ordinal()
-                .domain(_data.map(function(d, i){ return i; }))
+                .domain(_data.map(function(d, i){ return i }))
                 .rangeRoundBands([0, chartW], .1);
  
             var y1 = d3.scale.linear()
-                .domain([0, d3.max(_data, function(d, i){ return d; })])
+                .domain([0, d3.max(_data, function(d, i){ return d })])
                 .range([chartH, 0]);
  
             var xAxis = d3.svg.axis()
@@ -33,7 +36,7 @@ d3.custom.barChart = function module() {
  
             var barW = chartW / _data.length;
  
-            if(!svg) {
+            if ( ! svg ){
                 svg = d3.select(this)
                     .append('svg')
                     .classed('chart', true);
@@ -65,14 +68,20 @@ d3.custom.barChart = function module() {
             var bars = svg.select('.chart-group')
                 .selectAll('.bar')
                 .data(_data);
+								
             bars.enter().append('rect')
                 .classed('bar', true)
-                .attr({x: chartW,
+                .attr({
+										x: chartW,
                     width: barW,
                     y: function(d, i) { return y1(d); },
                     height: function(d, i) { return chartH - y1(d); }
                 })
+								.on('click', function(d){
+									console.log( d );
+								})
                 .on('mouseover', dispatch.customHover);
+								
             bars.transition()
                 .duration(duration)
                 .ease(ease)
@@ -82,8 +91,9 @@ d3.custom.barChart = function module() {
                     y: function(d, i) { return y1(d); },
                     height: function(d, i) { return chartH - y1(d); }
                 });
+								
             bars.exit().transition().style({opacity: 0}).remove();
- 
+ 					 
             duration = 500;
  
         });

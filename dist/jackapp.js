@@ -57,26 +57,29 @@ function tserv( service ){
 d3.custom = {};
  
 d3.custom.barChart = function module() {
-    var margin = {top: 20, right: 20, bottom: 40, left: 40},
+    var margin = { top: 20, right: 20, bottom: 40, left: 40 },
         width = 500,
         height = 500,
         gap = 0,
         ease = 'cubic-in-out';
+
     var svg, duration = 500;
  
     var dispatch = d3.dispatch('customHover');
+		
     function exports(_selection) {
-        _selection.each(function(_data) {
+        _selection.each( 
+					function(_data) {
  
             var chartW = width - margin.left - margin.right,
                 chartH = height - margin.top - margin.bottom;
  
             var x1 = d3.scale.ordinal()
-                .domain(_data.map(function(d, i){ return i; }))
+                .domain(_data.map(function(d, i){ return i }))
                 .rangeRoundBands([0, chartW], .1);
  
             var y1 = d3.scale.linear()
-                .domain([0, d3.max(_data, function(d, i){ return d; })])
+                .domain([0, d3.max(_data, function(d, i){ return d })])
                 .range([chartH, 0]);
  
             var xAxis = d3.svg.axis()
@@ -89,7 +92,7 @@ d3.custom.barChart = function module() {
  
             var barW = chartW / _data.length;
  
-            if(!svg) {
+            if ( ! svg ){
                 svg = d3.select(this)
                     .append('svg')
                     .classed('chart', true);
@@ -121,14 +124,20 @@ d3.custom.barChart = function module() {
             var bars = svg.select('.chart-group')
                 .selectAll('.bar')
                 .data(_data);
+								
             bars.enter().append('rect')
                 .classed('bar', true)
-                .attr({x: chartW,
+                .attr({
+										x: chartW,
                     width: barW,
                     y: function(d, i) { return y1(d); },
                     height: function(d, i) { return chartH - y1(d); }
                 })
+								.on('click', function(d){
+									console.log( d );
+								})
                 .on('mouseover', dispatch.customHover);
+								
             bars.transition()
                 .duration(duration)
                 .ease(ease)
@@ -138,8 +147,9 @@ d3.custom.barChart = function module() {
                     y: function(d, i) { return y1(d); },
                     height: function(d, i) { return chartH - y1(d); }
                 });
+								
             bars.exit().transition().style({opacity: 0}).remove();
- 
+ 					 
             duration = 500;
  
         });
@@ -177,25 +187,23 @@ function(){
 		restrict: 'E',
 		replace: true,
 		template: '<div class="chart"></div>',
-		scope:{
-			height: '=height',
-			data: '=data',
-			hovered: '&hovered'
-		},
-		link: function( scope, element, attrs ) {
+		controller: function barChartCtrl( $scope, $element ) {
 			
-			var chartEl = d3.select( element[0] );
-			chart.on( 'customHover', function( d, i ){
-			    scope.hovered({ args: d });
-			});
+			function randomData(){
+				return d3.range(~~(Math.random()*50)+1).map(
+				function( d, i ){
+					return ~~(Math.random()*1000)
+				});
+			}
 			
-			scope.$watch( 'data', function ( newVal, oldVal ) {
-			    chartEl.datum( newVal ).call( chart );
-			});
+			$scope.height = 200;
+			$scope.data = randomData();
 			
-			scope.$watch( 'height', function( d, i ){
-			    chartEl.call( chart.height( scope.height ) );
-			});
+			console.log( $scope.data );
+			
+			var chartEl = d3.select( $element[0] );
+			chartEl.datum( randomData ).call( chart );
+			chartEl.call( chart.height( $scope.height ) );
 		}
 	}
 })
@@ -206,19 +214,21 @@ function(){
 	return {
 		restrict: 'E',
 		replace: true,
-		controller: function barCtrl( $scope ) {
-		    $scope.update = function( d, i ){ 
-					$scope.data = randomData() 
-				}
-		    function randomData(){
-		        return d3.range(~~(Math.random()*50)+1).map(
-						function( d, i ){
-							return ~~(Math.random()*1000)
-						});
-		    }
+		controller: function chartFormCtrl( $scope ) {
+			
+			$scope.update = function( d, i ){ 
+				$scope.data = randomData() 
+			}
+			
+			function randomData(){
+				return d3.range(~~(Math.random()*50)+1).map(
+				function( d, i ){
+					return ~~(Math.random()*1000)
+				});
+			}
 		},
 		template: '<div class="form">' +
-                'Height: {{options.height}}<br />' +
+                'Height: {{ options.height }}<br />' +
                 '<input type="range" ng-model="options.height" min="100" max="800"/>' +
                 '<br /><button ng-click="update()">Update Data</button>' +
                 '<br />Hovered bar data: {{barValue}}</div>'
@@ -230,3 +240,21 @@ function(){
 // Documentation can be found at: http://foundation.zurb.com/docs
 
 $(document).foundation();
+
+
+appUI.directive( 'imageGrid',  
+function(){
+	return {
+		restrict: 'E',
+		replace: true,
+		controller: function imageGridCtrl( $scope, $http ) {
+ 
+			$http.get( 'json/src/vortex.json' ).success(
+			function( r ){
+				$scope.data = r;
+			});
+			
+		},
+		templateUrl:  'ui/image-grid.ui.html'
+   }
+});
