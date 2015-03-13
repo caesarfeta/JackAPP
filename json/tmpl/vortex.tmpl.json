@@ -1,13 +1,14 @@
 {
+	
 	"text": {
 		"urn:cts:diggity:dog": {
 			"tag": [ "vortex", "river" ],
-			"art": [ "34iua" ]
+			"art": [ "sample" ]
 		}
 	},
 	
 	"art": {
-		"34iua": { 
+		"sample": { 
 			"n": null,
 			"type": null,
 			"date": null,
@@ -15,24 +16,17 @@
 			"store": null,
 			"desc": null,
 			"biblio": null,
-			"img": [ "ri37f", "37ghi" ]
+			"img": [ "sample" ]
 		}
 	},
 	
 	"img":{
-		"ri37f": { 
+		"sample": { 
 			"src": null,
 			"thumb": null,
 			"caption": null,
 			"credit": null,
-			"tag": [ "vortex", "river", "dolphin" ]
-		},
-		"37ghi": { 
-			"src": null,
-			"thumb": null,
-			"caption": null,
-			"credit": null,
-			"tag": [ "vortex", "river", "dolphin" ]
+			"tag": [ "vortex", "river" ]
 		}
 	},
 	

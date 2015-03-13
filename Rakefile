@@ -11,9 +11,10 @@ task :install do
     'grunt-contrib-uglify',
     'grunt-contrib-watch',
     'grunt-contrib-concat',
-    'grunt-contrib-compass'
+    'grunt-contrib-compass',
+    'request-json'
   ].each do | pkg |
-      sh "npm install #{pkg} --save-dev"
+      sh "npm install #{pkg} --save"
   end
   
   # Install Ruby and Bower dependencies
