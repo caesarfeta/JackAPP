@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app='app'>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>imgcollect</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="bower_components/jquery-minicolors/jquery.minicolors.css" />
+		<link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="bower_components/modernizr/modernizr.js"></script>
+  </head>
+	
+  <body id='content'>
+	
+	<!-- Views -->
+	
+	<div class="row full-window">
+		<div class="columns small-12">
+			<div ng-view></div>
+		</div>
+	</div>
+
+
+	<!-- JQuery & Foundation -->
+	
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/foundation/js/foundation.min.js"></script>
+	<script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+
+	<!-- Angular -->
+		
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+	<script src="bower_components/ng-file-upload/angular-file-upload.min.js"></script>
+	<script src="bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
+	
+	<!-- Color picker -->
+	
+	<script src="bower_components/angular-minicolors/angular-minicolors.js"></script>
+	<script src="bower_components/jquery-minicolors/jquery.minicolors.min.js"></script>
+
+	<!-- App -->
+
+	<script src="dist/jackapp.min.js"></script>	
+
+	<!-- Random data for development -->
+	
+	<script src="bower_components/chance/chance.js"></script>
+	
+  </body>
+</html>
