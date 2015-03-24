@@ -9236,8 +9236,17 @@ ul.list table {
   background-color: #F6F6F6;
 }
 
+/* line 98, ../scss/app.scss */
+span.tag {
+  background-color: steelblue;
+  color: #EEEEEE;
+  padding: .25rem .5rem;
+  margin: .1rem;
+  display: inline-block;
+}
+
 /* d3 */
-/* line 100, ../scss/app.scss */
+/* line 108, ../scss/app.scss */
 svg .axis path,
 svg .axis line {
   fill: none;
@@ -9245,23 +9254,24 @@ svg .axis line {
   shape-rendering: crispEdges;
 }
 
-/* line 106, ../scss/app.scss */
+/* line 114, ../scss/app.scss */
 svg .axis path {
   fill: none;
   stroke: none;
 }
 
-/* line 110, ../scss/app.scss */
+/* line 118, ../scss/app.scss */
 svg .bar {
-  fill: #a1c4e2;
+  fill: #EEEEEE;
 }
 
-/* line 113, ../scss/app.scss */
-svg .bar:hover {
+/* line 121, ../scss/app.scss */
+svg .bar:hover,
+svg .bar.selected {
   fill: steelblue;
 }
 
-/* line 116, ../scss/app.scss */
+/* line 125, ../scss/app.scss */
 svg .value {
   fill: #AAA;
   font-size: .75rem;

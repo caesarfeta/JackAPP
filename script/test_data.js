@@ -135,7 +135,7 @@ function build_tag(){
 // run the script
 
 function run(){
-	build_vortex();
-//	build_tag();
+//	build_vortex();
+	build_tag();
 }
 run();

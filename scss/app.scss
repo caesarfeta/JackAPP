@@ -95,6 +95,14 @@ ul.list table{
   background-color:$vapor;
 }
 
+span.tag{
+	background-color: steelblue;
+	color: $smoke;
+	padding:.25rem .5rem;
+	margin:.1rem;
+	display:inline-block;
+}
+
 /* d3 */
 
 svg .axis path, 
@@ -108,9 +116,10 @@ svg .axis path{
 	stroke: none;
 }
 svg .bar {
-	fill: rgb(161, 196, 226);
+	fill: $smoke;
 }
-svg .bar:hover {
+svg .bar:hover,
+svg .bar.selected {
 	fill: steelblue;
 };
 svg .value {
