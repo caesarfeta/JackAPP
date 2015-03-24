@@ -53,7 +53,7 @@ d3.custom.barChart = function module( data ){
 			.attr('height', barHeight )
 				
 		bar.append('text')
-			.attr('x', function(d){ return ( width - x(d.value) ) + 5 })
+			.attr('x', function(d){ return ( width - x(d.value) ) + 3 })
 			.attr('y', function(d){ return ( y( d.name ) + barHeight ) - 2 })
 			.text( function(d){ return d.value })
 			.attr( 'class', 'value' );

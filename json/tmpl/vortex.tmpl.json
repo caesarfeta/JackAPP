@@ -28,11 +28,6 @@
 			"credit": null,
 			"tag": [ "vortex", "river" ]
 		}
-	},
-	
-	"tag": {
-		"vortex": { "count": 100 },
-		"river": { "count": 30 }
 	}
 	
 }

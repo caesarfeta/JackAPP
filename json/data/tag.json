@@ -1,0 +1,11 @@
+[
+	{ 
+		"name": "vortex",
+		"value": 100
+	},
+	
+	{ 
+		"name": "river",
+		"value": 25
+	}
+]

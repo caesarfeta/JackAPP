@@ -109,7 +109,7 @@ d3.custom.barChart = function module( data ){
 			.attr('height', barHeight )
 				
 		bar.append('text')
-			.attr('x', function(d){ return ( width - x(d.value) ) + 5 })
+			.attr('x', function(d){ return ( width - x(d.value) ) + 3 })
 			.attr('y', function(d){ return ( y( d.name ) + barHeight ) - 2 })
 			.text( function(d){ return d.value })
 			.attr( 'class', 'value' );
@@ -129,28 +129,26 @@ d3.custom.barChart = function module( data ){
 
 
 appUI.directive( 'barChart', 
-function(){
+[ '$http',
+function( $http ){
 	return {
 		restrict: 'E',
 		replace: true,
 		template: '<svg class="chart"></svg>',
-		controller: function barChartCtrl( $scope, $element ) {
+		link: function( scope, elem, attr ) {
 			
-			function randomData(){
-				return d3.range(~~(Math.random()*50)+1).map(
-				function( d, i ){
-					return { name: chance.word(), value: ~~(Math.random()*1000) }
-				});
-			}
+			function start(){
+			$http.get( attr.src ).then(
+				function(r){
+					d3.custom.barChart( r.data );
+				}
+			)}
 			
-			function getData(){
-				console.log( 'get that data' );
-			}
+			start();
 			
-			d3.custom.barChart( randomData() );
 		}
 	}
-})
+}]);
 
 
 appUI.directive('chartForm', 
