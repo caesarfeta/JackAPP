@@ -5,7 +5,7 @@ function(){
 		replace: true,
 		controller: function imageGridCtrl( $scope, $http ) {
  
-			$http.get( 'json/src/vortex.json' ).success(
+			$http.get( 'json/data/vortex.json' ).success(
 			function( r ){
 				$scope.data = r;
 			});

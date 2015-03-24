@@ -1,7 +1,7 @@
 # JackAPP
 
 JackAPP is a JackSON AngularJS application starter-kit.
-It was designed to make building link-data web applications simple.
+It was designed to make building linked-data web applications simple.
 
 ## Features
 

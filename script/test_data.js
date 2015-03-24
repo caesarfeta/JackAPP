@@ -1,5 +1,6 @@
 var r = require('request-json');
 var fs = require('fs');
+var clone = require('clone');
 var Chance = require('../bower_components/chance');
 var chance = new Chance();
 var char_pool = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -34,8 +35,23 @@ function keywords( n ){
 	return keys;
 }
 
-function img( tmpl ){
-	return tmpl;
+function steven( thumb ){
+	var ns = [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ];
+	var url = "http://stevensegallery.com/";
+	if ( ! thumb ){
+		return url + rand_item( ns ) + '/' + rand_item( ns );
+	}
+	return url + 75 + '/' + 75;
+}
+
+function rand_item( arr ){
+	return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function img( data ){
+	data.src = steven();
+	data.thumb = steven( true );
+	return clone( data );
 }
 
 function id(){ return chance.string({ length: 5, pool: char_pool }) }

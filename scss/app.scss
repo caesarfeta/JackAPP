@@ -96,16 +96,24 @@ ul.list table{
 }
 
 /* d3 */
-.axis path, 
-.axis line {
+
+svg .axis path, 
+svg .axis line {
 	fill: none;
 	stroke: black;
 	shape-rendering: crispEdges;
 }
-.axis path{
+svg .axis path{
 	fill: none;
 	stroke: none;
 }
-.bar {
+svg .bar {
+	fill: rgb(161, 196, 226);
+}
+svg .bar:hover {
 	fill: steelblue;
+};
+svg .value {
+	fill: #AAA;
+	font-size: .75rem;
 }

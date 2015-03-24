@@ -9237,21 +9237,32 @@ ul.list table {
 }
 
 /* d3 */
-/* line 99, ../scss/app.scss */
-.axis path,
-.axis line {
+/* line 100, ../scss/app.scss */
+svg .axis path,
+svg .axis line {
   fill: none;
   stroke: black;
   shape-rendering: crispEdges;
 }
 
-/* line 105, ../scss/app.scss */
-.axis path {
+/* line 106, ../scss/app.scss */
+svg .axis path {
   fill: none;
   stroke: none;
 }
 
-/* line 109, ../scss/app.scss */
-.bar {
+/* line 110, ../scss/app.scss */
+svg .bar {
+  fill: #a1c4e2;
+}
+
+/* line 113, ../scss/app.scss */
+svg .bar:hover {
   fill: steelblue;
+}
+
+/* line 116, ../scss/app.scss */
+svg .value {
+  fill: #AAA;
+  font-size: .75rem;
 }

@@ -1,3 +1,19 @@
-<div ng-repeat="img in data.img">
-	<a href="{{ img.src }}"><img ng-src="{{ img.thumb }}"></a>
-</div>
+<ul class="small-block-grid-3">
+	<li ng-repeat="img in data.img">
+		
+		<!-- img link -->
+		
+		<a href="{{ img.src }}">
+			<img ng-src="{{ img.thumb }}">
+		</a>
+		
+		<!-- keyword tags -->
+		
+		<ul>
+			<li ng-repeat="tag in img.tag">
+				<a ng-click="">{{ tag }}</a>
+			</li>
+		</ul>
+		
+	</li>
+</ul>
