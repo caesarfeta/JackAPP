@@ -1,11 +1,54 @@
 [
-	{ 
-		"name": "vortex",
-		"value": 100
-	},
-	
-	{ 
-		"name": "river",
-		"value": 25
-	}
+  {
+    "name": "adovukad",
+    "value": 24
+  },
+  {
+    "name": "po",
+    "value": 22
+  },
+  {
+    "name": "jibaz",
+    "value": 21
+  },
+  {
+    "name": "lurfuze",
+    "value": 18
+  },
+  {
+    "name": "sazegdor",
+    "value": 26
+  },
+  {
+    "name": "sudatun",
+    "value": 20
+  },
+  {
+    "name": "se",
+    "value": 10
+  },
+  {
+    "name": "uruvara",
+    "value": 24
+  },
+  {
+    "name": "fuj",
+    "value": 22
+  },
+  {
+    "name": "weholus",
+    "value": 20
+  },
+  {
+    "name": "jifzihi",
+    "value": 21
+  },
+  {
+    "name": "wada",
+    "value": 17
+  },
+  {
+    "name": "otgedjog",
+    "value": 20
+  }
 ]

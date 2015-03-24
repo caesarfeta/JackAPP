@@ -19,7 +19,6 @@ function write( file, data ){
 	});
 }
 
-
 // Open a json file
 
 function open_json( file ){
@@ -48,20 +47,52 @@ function rand_item( arr ){
 	return arr[Math.floor(Math.random()*arr.length)];
 }
 
+// Build array of random words
+
+function rand_words(){
+	if ( keywords.length == 0 ){
+		keywords = build_keywords();
+	}
+	var i = chance.integer({ min: 1, max: 5 });
+	var o = {};
+	while ( i > 0 ){
+		var key = chance.integer({ min: 0, max: keywords.length-1 });
+		o[ keywords[key] ] = 1;
+		i--;
+	}
+	var a = [];
+	for( var key in o ){
+		a.push( key );
+	}
+	return a;
+}
+
+var keywords = [];
+function build_keywords(){
+	var i = chance.integer({ min: 5, max: 20 });
+	var w = [];
+	while ( i > 0 ){
+		w.push( chance.word() );
+		i--;
+	}
+	return w;
+}
+
+// Create an img record
+
 function img( data ){
 	data.src = steven();
 	data.thumb = steven( true );
+	data.tag = rand_words();
 	return clone( data );
 }
 
-function id(){ return chance.string({ length: 5, pool: char_pool }) }
+function id(){ 
+	return chance.string({ length: 5, pool: char_pool }) 
+}
 
-
-// run the script
-
-function run(){
+function build_vortex(){
 	var tmpl = open_json( '../json/tmpl/vortex.tmpl.json' );
-	var keys = keywords( 25 );
 	
 	// image records
 	
@@ -71,7 +102,40 @@ function run(){
 		imgs[ id() ] = img( imgt );
 	}
 	tmpl.img = imgs;
-	
 	write( '../json/data/vortex.json', tmpl );
+}
+
+function build_tag(){
+	
+	// Get the vortex json
+	
+	var src = open_json( '../json/data/vortex.json' );
+	
+	// Count the tags
+	
+	var tags = {};
+	for ( var key in src.img ){
+		for ( var i=0; i<src.img[key].tag.length; i++ ){
+			var tag = src.img[key].tag[i];
+			if( !( tag in tags ) ){
+				tags[tag] = 0;
+			}
+			tags[tag] += 1;
+		}
+	}
+	
+	var obj = [];
+	for ( var tag in tags ){
+		obj.push( { "name": tag, "value": tags[tag] } );
+	}
+	write( '../json/data/tag.json', obj );
+	
+}
+
+// run the script
+
+function run(){
+	build_vortex();
+//	build_tag();
 }
 run();

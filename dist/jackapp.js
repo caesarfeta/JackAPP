@@ -55,6 +55,11 @@ function tserv( service ){
 
 
 d3.custom = {};
+d3.custom.tags = {};
+
+
+// Build a d3 barchart
+
 d3.custom.barChart = function module( data ){
 
 	var margin = {
@@ -107,6 +112,9 @@ d3.custom.barChart = function module( data ){
 			.attr('y', function(d) { return y( d.name ) })
 			.attr('width', function(d) { return width - x( d.value ) })
 			.attr('height', barHeight )
+			.on( 'click', function(d){ 
+				d3.custom.tags[d.name] = 1;
+			})
 				
 		bar.append('text')
 			.attr('x', function(d){ return ( width - x(d.value) ) + 3 })
