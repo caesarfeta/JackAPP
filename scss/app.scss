@@ -128,6 +128,11 @@ svg .value {
 }
 
 /* img-grid */
+
+.img-grid {
+	overflow-y: scroll;
+}
+
 .img-grid .box a {
 	display: inline-block;
 	margin: 0 .5rem;

@@ -9278,7 +9278,12 @@ svg .value {
 }
 
 /* img-grid */
-/* line 131, ../scss/app.scss */
+/* line 132, ../scss/app.scss */
+.img-grid {
+  overflow-y: scroll;
+}
+
+/* line 136, ../scss/app.scss */
 .img-grid .box a {
   display: inline-block;
   margin: 0 .5rem;
