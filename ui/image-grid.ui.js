@@ -3,7 +3,7 @@ function(){
 	return {
 		restrict: 'E',
 		replace: true,
-		controller: function imageGridCtrl( $scope, $http ) {
+		controller: function imageGridCtrl( $scope, $http ){
  
  		 	
  		 	// Get the data

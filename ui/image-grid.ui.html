@@ -1,11 +1,9 @@
 <div class="img-grid" ng-style="resizeOffset(0)" resize>
 <div class="box" ng-repeat="img in imgs()">
 		
-		<!-- img link -->
+		<!-- img link with reveal modal window -->
 		
-		<a href="{{ img.src }}">
-			<img ng-src="{{ img.thumb }}">
-		</a>
+		<reveal img="{{ img.src }}"><img ng-src="{{ img.thumb }}"/></reveal>
 		
 		<!-- keyword tags -->
 		

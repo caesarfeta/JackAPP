@@ -165,7 +165,7 @@ function( $http ){
 		restrict: 'E',
 		replace: true,
 		template: '<svg class="chart"></svg>',
-		link: function( scope, elem, attr ) {
+		link: function( scope, elem, attr ){
 			
 			// Build the barchart
 			
@@ -225,7 +225,7 @@ function(){
 	return {
 		restrict: 'E',
 		replace: true,
-		controller: function imageGridCtrl( $scope, $http ) {
+		controller: function imageGridCtrl( $scope, $http ){
  
  		 	
  		 	// Get the data
@@ -310,3 +310,31 @@ return function( scope, element, attr ){
 	});
 	
 }}); 
+
+
+appUI.directive( 'reveal', 
+function(){
+	return {
+		restrict: 'E',
+		link: function( scope, elem, attr ){
+			
+			// Add reveal modal window to the DOM
+			
+			var id = 'reveal-img';
+			if ( ! $( '#'+id ).length ){
+				$( 'body' ).append( '<div id="' + id + '" class="reveal-modal" data-reveal></div>' );
+			}
+			
+			// When reveal link is clicked update the img src and show
+			
+			$( elem ).on( 'touchstart click', function(){
+				if (! $( '#'+id+' img' ).length ){
+					$( '#'+id ).append( '<img />' );
+				}
+				$( '#'+id+' img' ).attr( 'src', attr.img );
+				$( '#'+id ).foundation('reveal', 'open');
+			});
+			
+		}
+	}
+});

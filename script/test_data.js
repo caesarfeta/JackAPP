@@ -5,6 +5,7 @@ var Chance = require('../bower_components/chance');
 var chance = new Chance();
 var char_pool = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
+
 // Write the file
 
 function write( file, data ){
@@ -19,11 +20,15 @@ function write( file, data ){
 	});
 }
 
+
 // Open a json file
 
 function open_json( file ){
 	return JSON.parse( fs.readFileSync( file ) );
 }
+
+
+// Build keywords
 
 function keywords( n ){
 	var keys = [];
@@ -34,6 +39,9 @@ function keywords( n ){
 	return keys;
 }
 
+
+// Get a Steven Segall themed image
+
 function steven( thumb ){
 	var ns = [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ];
 	var url = "http://stevensegallery.com/";
@@ -43,9 +51,13 @@ function steven( thumb ){
 	return url + 75 + '/' + 75;
 }
 
+
+// Grab a random item from an array
+
 function rand_item( arr ){
 	return arr[Math.floor(Math.random()*arr.length)];
 }
+
 
 // Build array of random words
 
@@ -66,7 +78,6 @@ function rand_words(){
 	}
 	return a;
 }
-
 var keywords = [];
 function build_keywords(){
 	var i = chance.integer({ min: 5, max: 20 });
@@ -77,6 +88,7 @@ function build_keywords(){
 	}
 	return w;
 }
+
 
 // Create an img record
 
@@ -93,6 +105,9 @@ function id(){
 	return chance.string({ length: 5, pool: char_pool }) 
 }
 
+
+// Build the vortex JSON file
+
 function build_vortex(){
 	var tmpl = open_json( '../json/tmpl/vortex.tmpl.json' );
 	
@@ -106,6 +121,10 @@ function build_vortex(){
 	tmpl.img = imgs;
 	write( '../json/data/vortex.json', tmpl );
 }
+
+
+
+// Build the tag frequency file
 
 function build_tag(){
 	
@@ -131,8 +150,8 @@ function build_tag(){
 		obj.push( { "name": tag, "value": tags[tag] } );
 	}
 	write( '../json/data/tag.json', obj );
-	
 }
+
 
 // run the script
 

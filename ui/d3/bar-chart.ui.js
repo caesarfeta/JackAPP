@@ -5,7 +5,7 @@ function( $http ){
 		restrict: 'E',
 		replace: true,
 		template: '<svg class="chart"></svg>',
-		link: function( scope, elem, attr ) {
+		link: function( scope, elem, attr ){
 			
 			// Build the barchart
 			
