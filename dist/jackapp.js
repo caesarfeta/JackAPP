@@ -231,9 +231,18 @@ function(){
  		 	// Get the data
 			
  		 	$scope.data = null;
+			$scope.total = null;
+			$scope.shown = null;
+			
 			$http.get( 'json/data/vortex.json' ).success(
 			function( r ){
 				$scope.data = r;
+				var n = 0;
+				for ( var img in $scope.data.img ){
+					n++;
+				}
+				$scope.shown = $scope.total = n;
+				$scope.$apply();
 			});
 			
 			
@@ -274,6 +283,7 @@ function(){
 						out.push( img );
 					}
 				}
+				$scope.shown = out.length;
 				return out;
 			}
 			
