@@ -84,6 +84,8 @@ function img( data ){
 	data.src = steven();
 	data.thumb = steven( true );
 	data.tag = rand_words();
+	data.label = chance.sentence();
+	data.description = chance.sentence();
 	return clone( data );
 }
 
@@ -135,7 +137,12 @@ function build_tag(){
 // run the script
 
 function run(){
-//	build_vortex();
-	build_tag();
+	switch ( process.argv[2] ){
+		case 'tag':
+			build_tag();
+			break;
+		default:
+			build_vortex();
+	}
 }
 run();

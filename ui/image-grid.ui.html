@@ -1,5 +1,5 @@
-<ul class="small-block-grid-3">
-	<li ng-repeat="img in imgs()">
+<div class="img-grid">
+<div class="box" ng-repeat="img in imgs()">
 		
 		<!-- img link -->
 		
@@ -9,11 +9,10 @@
 		
 		<!-- keyword tags -->
 		
-		<ul>
-			<li ng-repeat="tag in img.tag">
-				<a ng-click="">{{ tag }}</a>
-			</li>
-		</ul>
+		<p>{{ img.label }}</p>
+		<p>{{ img.description }}</p>
 		
-	</li>
-</ul>
+		<a ng-repeat="tag in img.tag" ng-click="">{{ tag }}</a>
+		
+</div>
+</div>

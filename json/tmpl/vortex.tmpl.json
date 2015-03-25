@@ -24,8 +24,8 @@
 		"sample": { 
 			"src": null,
 			"thumb": null,
-			"caption": null,
-			"credit": null,
+			"label": null,
+			"description": null,
 			"tag": [ "vortex", "river" ]
 		}
 	}
