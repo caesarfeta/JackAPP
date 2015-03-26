@@ -233,7 +233,6 @@ function(){
  		 	$scope.data = null;
 			$scope.total = null;
 			$scope.shown = null;
-			
 			$http.get( 'json/data/vortex.json' ).success(
 			function( r ){
 				$scope.data = r;
@@ -264,6 +263,7 @@ function(){
 				}
 				
 				if ( $scope.tags.length == 0 ){
+					$scope.shown = $scope.total;
 					return $scope.data.img;
 				}
 				
@@ -283,6 +283,7 @@ function(){
 						out.push( img );
 					}
 				}
+				
 				$scope.shown = out.length;
 				return out;
 			}
@@ -332,16 +333,27 @@ function(){
 			
 			var id = 'reveal-img';
 			if ( ! $( '#'+id ).length ){
-				$( 'body' ).append( '<div id="' + id + '" class="reveal-modal" data-reveal></div>' );
+				$( 'body' ).append( '<div id="'+id+'" class="reveal-modal" data-reveal><img id="loader" src="img/loader.gif" /></div>' );
 			}
 			
 			// When reveal link is clicked update the img src and show
 			
 			$( elem ).on( 'touchstart click', function(){
-				if (! $( '#'+id+' img' ).length ){
-					$( '#'+id ).append( '<img />' );
+				
+				// Add the img content container
+				
+				if ( ! $( '#'+id+' img#content' ).length ){
+					$( '#'+id ).append( '<img id="content" />' );
 				}
-				$( '#'+id+' img' ).attr( 'src', attr.img );
+				
+				// Show the loader gif until content img is loaded
+				
+				$( '#'+id+' #loader' ).show();
+				$( '#'+id+' img#content' ).load( function(){
+					$( '#'+id+' #loader' ).hide();
+				});
+				$( '#'+id+' img#content' ).attr( 'src', attr.img );
+				
 				$( '#'+id ).foundation('reveal', 'open');
 			});
 			

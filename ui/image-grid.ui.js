@@ -11,7 +11,6 @@ function(){
  		 	$scope.data = null;
 			$scope.total = null;
 			$scope.shown = null;
-			
 			$http.get( 'json/data/vortex.json' ).success(
 			function( r ){
 				$scope.data = r;
@@ -42,6 +41,7 @@ function(){
 				}
 				
 				if ( $scope.tags.length == 0 ){
+					$scope.shown = $scope.total;
 					return $scope.data.img;
 				}
 				
@@ -61,6 +61,7 @@ function(){
 						out.push( img );
 					}
 				}
+				
 				$scope.shown = out.length;
 				return out;
 			}

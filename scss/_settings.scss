@@ -116,9 +116,11 @@ $row-width:100%;
  $black       : #000000;
  
 // Custom colors
- $robin		  : #D7F7FF;
+ $robin		    : #D7F7FF;
  $faded-text  : $aluminum;
- $yellow	  : #FFFF00;
+ $yellow	    : #FFFF00;
+ $clear       : rgba( 255, 255, 255, 0 );
+ $sunglass		: rgba( 0, 0, 0, 0.5 );
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;

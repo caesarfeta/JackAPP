@@ -137,3 +137,22 @@ svg .value {
 	display: inline-block;
 	margin: 0 .5rem;
 }
+
+/* reveal */
+
+/* hack to mack reveal just display images contained inside it */
+.reveal-modal {
+	text-align: center;
+	background: $sunglass;
+	box-shadow: none;
+	border: none;
+	outline: none;
+}
+
+/*
+.reveal-modal img {
+	overflow: visible;
+	min-width: 50px;
+	max-width: 800px;
+}
+*/
