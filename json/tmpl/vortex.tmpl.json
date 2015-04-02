@@ -1,22 +1,9 @@
 {
 	
 	"text": {
-		"urn:cts:diggity:dog": {
+		"sample": {
+			"urn": null,
 			"tag": [ "vortex", "river" ],
-			"art": [ "sample" ]
-		}
-	},
-	
-	"art": {
-		"sample": { 
-			"n": null,
-			"type": null,
-			"date": null,
-			"prov": null,
-			"store": null,
-			"desc": null,
-			"biblio": null,
-			"img": [ "sample" ]
 		}
 	},
 	

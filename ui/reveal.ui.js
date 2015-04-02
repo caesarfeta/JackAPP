@@ -29,7 +29,9 @@ function(){
 				});
 				$( '#'+id+' img#content' ).attr( 'src', attr.img );
 				
-				$( '#'+id ).foundation('reveal', 'open');
+				// Open the modal window
+				
+				$( '#'+id ).foundation( 'reveal', 'open' );
 			});
 			
 		}

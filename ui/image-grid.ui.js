@@ -19,7 +19,6 @@ function(){
 					n++;
 				}
 				$scope.shown = $scope.total = n;
-				$scope.$apply();
 			});
 			
 			

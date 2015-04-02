@@ -18,7 +18,17 @@ It was designed to make building linked-data web applications simple.
 
 * json
 	* JSON data templates and configuration
+	
 * json/context
 	* JSON-LD ontologies
+	
 * json/config.json 
 	maps JSON template to ontology and UI element.
+	
+## Commands
+
+bower install
+Install Javascript UI libraries
+
+npm install
+Install NodeJS script libraries

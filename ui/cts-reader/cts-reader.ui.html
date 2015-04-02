@@ -1,0 +1,48 @@
+<div id="cts-reader" ng-controller="ctsReaderCtrl" class="box">
+
+
+	<!-- Tab buttons -->
+	
+	<div>
+	<button
+		id="list"
+		class="button secondary small"
+		ng-click="list()">
+		List
+	</button>
+	
+	<button
+		id="text"
+		class="button secondary small"
+		ng-click="text()">
+		Text
+	</button>
+	</div>
+	
+	
+	<!-- Content -->
+	
+	<div class="content">
+		
+		<div class="tab loading">
+			<img ng-src="img/loader.gif" />
+		</div>
+		
+		<!-- The current text -->
+		
+		<div class="tab text">
+			{{ cts.text }}
+		</div>
+		
+		<!-- Build the list of texts -->
+		
+		<div class="tab list">
+			<span>Showing {{ cts.shown }} of {{ cts.total }}</span>
+			<a ng-repeat="text in filtered_list()" ng-click="read()">
+				<pre>{{ text }}</pre>
+			</a>
+			<a ng-click="urn( 'urn:cts:greekLit:tlg0012.tlg001.perseus-eng1' )">Click!</a>
+		</div>
+		
+	</div>
+</div>

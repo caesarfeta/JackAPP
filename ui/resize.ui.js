@@ -1,4 +1,4 @@
-app.directive( 'resize', 
+appUI.directive( 'resize', 
 function( $window ){
 return function( scope, element, attr ){
 	
