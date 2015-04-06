@@ -1,4 +1,4 @@
-<div id="cts-reader" ng-controller="ctsReaderCtrl" class="box">
+<div id="cts-reader" ng-controller="ctsReaderCtrl" class="box light">
 
 
 	<!-- Tab buttons -->
@@ -38,10 +38,12 @@
 		
 		<div class="tab list">
 			<span>Showing {{ cts.shown }} of {{ cts.total }}</span>
-			<a ng-repeat="text in filtered_list()" ng-click="read()">
-				<pre>{{ text }}</pre>
-			</a>
-			<a ng-click="urn( 'urn:cts:greekLit:tlg0012.tlg001.perseus-eng1' )">Click!</a>
+			<div class="box" ng-repeat="text in filtered_list()">
+				<a  ng-click="urn( text.urn )">
+					{{ text.label }} - {{ text.urn }}
+				</a>
+				<div class="tags">{{ text.tag.join(', ') }}</div>
+			</div>
 		</div>
 		
 	</div>

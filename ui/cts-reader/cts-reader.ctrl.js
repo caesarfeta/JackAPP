@@ -69,10 +69,11 @@ function( $scope, $http, config ){
 				}
 			}
 			if ( matches == scps.length ){
-				out.push( img );
+				out.push( text );
 			}
 		}
 		
+		$scope.cts.shown = out.length;
 		return out;
 	}
 	
@@ -88,6 +89,13 @@ function( $scope, $http, config ){
 	// Get the text on the otherside of a CTS URN
 	
 	$scope.urn = function( urn ){
+		
+		// Open the text pane
+		
+		$scope.text();
+		
+		// Get the passage using Capitain's Sparrow
+		
     var psg = passage([ 
       urn,
       config.endpoint, 

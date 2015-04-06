@@ -11,7 +11,7 @@
 		<p>{{ img.label }}</p>
 		<p>{{ img.description }}</p>
 		
-		<a ng-repeat="tag in img.tag" ng-click="">{{ tag }}</a>
+		<div class="tags">{{ img.tag.join(', ') }}</div>
 		
 </div>
 </div>

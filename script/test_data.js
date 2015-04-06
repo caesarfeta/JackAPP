@@ -77,7 +77,7 @@ function rand_words(){
 		a.push( key );
 	}
 	return a;
-}
+} 
 var keywords = [];
 function build_keywords(){
 	var i = chance.integer({ min: 5, max: 20 });
@@ -138,6 +138,16 @@ function build_tag(){
 	for ( var key in src.img ){
 		for ( var i=0; i<src.img[key].tag.length; i++ ){
 			var tag = src.img[key].tag[i];
+			if( !( tag in tags ) ){
+				tags[tag] = 0;
+			}
+			tags[tag] += 1;
+		}
+	}
+	
+	for ( var key in src.text ){
+		for ( var i=0; i<src.text[key].tag.length; i++ ){
+			var tag = src.text[key].tag[i];
 			if( !( tag in tags ) ){
 				tags[tag] = 0;
 			}

@@ -94,13 +94,12 @@ ul.list table{
   padding:1rem;
   background-color:$vapor;
 }
+.box.light{
+	background-color: $ghost;
+}
 
-span.tag{
-	background-color: steelblue;
-	color: $smoke;
-	padding:.25rem .5rem;
-	margin:.1rem;
-	display:inline-block;
+.tags {
+	font-size: .75rem;
 }
 
 /* d3 */
@@ -124,6 +123,8 @@ svg .bar.selected {
 };
 svg .value {
 	fill: #AAA;
+}
+svg text {
 	font-size: .75rem;
 }
 

@@ -1,34 +1,62 @@
-# JackAPP
+# Vortex Visualization
 
-JackAPP is a JackSON AngularJS application starter-kit.
-It was designed to make building linked-data web applications simple.
+## Install
 
-## Features
+Install node, npm, and grunt then run...
 
-* Decoupling of ontology terms with an application data-model.
-	* Ontology terms can be modified and not break internal integrity of the application.
-		* Developers can concentrate exclusively on building internally consistent data-models.  
-				* If a better ontology term is discovered it can be used with a simple configuration change.  No new code will be written.
+	npm install
+	grunt
 
-* Handy services for...
-	* Saving data to, and retrieving data from, a JackSON server.
-	* Querying a SPARQL endpoint.
+When developing be sure to run...
 
-## Files and directories explained
+	grunt watch
 
-* json
-	* JSON data templates and configuration
-	
-* json/context
-	* JSON-LD ontologies
-	
-* json/config.json 
-	maps JSON template to ontology and UI element.
-	
-## Commands
+...so the newly modified source is concatenated and minified.
 
-bower install
-Install Javascript UI libraries
+## Config
 
-npm install
-Install NodeJS script libraries
+	config/config.js
+
+Right now this config file is only used to configure Capitain's Sparrow.
+
+## Layout
+
+Here's the basic layout of the visualization.
+
+	[ keyword-frequency ][ image-list ]
+	[ text-list         ][		...     ]
+
+## Interactivity
+
+Click the bars in keyword-frequency to filter the image-list and text-list.
+Click an image thumbnail in the image-list to pop-up full sized image.
+Click label in text-list to open the text.
+
+## Test Data
+
+	script/test_data.js
+
+This produces dummy records for testing.
+Uses JSON template files in json/tmpl and creates sample files in json/data.
+
+### Commands
+
+	node test_data.js 
+
+build `json/data/vortex.json`
+
+	node test_data.js tag
+
+build `json/data/tag.json`
+
+### UI - Data connection
+
+`json/data/vortex.json` populates the image-list and text-list.
+`json/data/tag.json` populates the keyword-frequency.
+
+The data-structure is really simple and should be self-explanatory just extend as needed.
+
+## NOTES
+
+CTS XML to HTML transform still needs to be performed.
+See... `ui/cts-reader/cts-reader.ui.js $scope.urn()`

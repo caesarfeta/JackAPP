@@ -9236,17 +9236,18 @@ ul.list table {
   background-color: #F6F6F6;
 }
 
-/* line 98, ../scss/app.scss */
-span.tag {
-  background-color: steelblue;
-  color: #EEEEEE;
-  padding: .25rem .5rem;
-  margin: .1rem;
-  display: inline-block;
+/* line 97, ../scss/app.scss */
+.box.light {
+  background-color: #FAFAFA;
+}
+
+/* line 101, ../scss/app.scss */
+.tags {
+  font-size: .75rem;
 }
 
 /* d3 */
-/* line 108, ../scss/app.scss */
+/* line 107, ../scss/app.scss */
 svg .axis path,
 svg .axis line {
   fill: none;
@@ -9254,36 +9255,40 @@ svg .axis line {
   shape-rendering: crispEdges;
 }
 
-/* line 114, ../scss/app.scss */
+/* line 113, ../scss/app.scss */
 svg .axis path {
   fill: none;
   stroke: none;
 }
 
-/* line 118, ../scss/app.scss */
+/* line 117, ../scss/app.scss */
 svg .bar {
   fill: #EEEEEE;
 }
 
-/* line 121, ../scss/app.scss */
+/* line 120, ../scss/app.scss */
 svg .bar:hover,
 svg .bar.selected {
   fill: steelblue;
 }
 
-/* line 125, ../scss/app.scss */
+/* line 124, ../scss/app.scss */
 svg .value {
   fill: #AAA;
+}
+
+/* line 127, ../scss/app.scss */
+svg text {
   font-size: .75rem;
 }
 
 /* img-grid */
-/* line 132, ../scss/app.scss */
+/* line 133, ../scss/app.scss */
 .img-grid {
   overflow-y: scroll;
 }
 
-/* line 136, ../scss/app.scss */
+/* line 137, ../scss/app.scss */
 .img-grid .box a {
   display: inline-block;
   margin: 0 .5rem;
@@ -9291,7 +9296,7 @@ svg .value {
 
 /* reveal */
 /* hack to mack reveal just display images contained inside it */
-/* line 144, ../scss/app.scss */
+/* line 145, ../scss/app.scss */
 .reveal-modal {
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
